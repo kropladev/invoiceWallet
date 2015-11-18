@@ -6,25 +6,26 @@ package pl.kropladev.wallet.service;
     import java.util.List;
 
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.beans.factory.annotation.Qualifier;
     import org.springframework.stereotype.Service;
     import org.springframework.transaction.annotation.Transactional;
 
-    import pl.kropladev.wallet.dao.InvoiceDao;
+    import pl.kropladev.wallet.dao.SimpleDao;
     import pl.kropladev.wallet.model.Invoice;
 
     @Service("invoiceService")
     @Transactional
     public class InvoiceServiceImpl implements InvoiceService{
 
-        @Autowired
-        private InvoiceDao dao;
+        @Autowired @Qualifier("invoiceDao")
+        private SimpleDao<Invoice> dao;
 
         public Invoice findInvoiceById(Long id) {
             return dao.findById(id);
         }
 
         public void saveInvoice(Invoice invoice) {
-            dao.saveInvoice(invoice);
+            dao.saveEntity(invoice);
         }
 
         /*
@@ -35,28 +36,21 @@ package pl.kropladev.wallet.service;
         public void updateInvoice(Invoice invoice) {
             Invoice entity = dao.findById(invoice.getId());
             if(entity!=null){
-  /*              entity.setName(invoice.getName());
-                entity.setJoiningDate(invoice.getJoiningDate());
-                entity.setSalary(invoice.getSalary());
-                entity.setSsn(invoice.getSsn());*/
+                entity.setDescription(invoice.getDescription());
+                entity.setInvoiceNumber(invoice.getInvoiceNumber());
+                entity.setAmount(invoice.getAmount());
+                entity.setFkFirm(invoice.getFkFirm());
+                entity.setPayDate(invoice.getPayDate());
+                entity.setTradeDate(invoice.getTradeDate());
             }
         }
 
-        public void deleteInvoiceById(Long invId) {
-            dao.deleteInvoiceById(invId);
+        public void deleteInvoiceById(Long entityId) {
+            dao.deleteEntityById(entityId);
         }
 
         public List<Invoice> findAllInvoices() {
-            return dao.findAllInvoices();
+            return dao.findAllEntities();
         }
-
-/*        public Invoice findInvoiceBySsn(String ssn) {
-            return dao.findInvoiceBySsn(ssn);
-        }*/
-
-/*        public boolean isInvoiceSsnUnique(Integer id, String ssn) {
-            Invoice invoice = findInvoiceBySsn(ssn);
-            return ( invoice == null || ((id != null) && (invoice.getId() == id)));
-        }*/
 
     }

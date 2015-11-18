@@ -20,7 +20,7 @@
 
 <body>
 
-    <h2>Registration Form</h2>
+    <h2>new Invoice Registration Form</h2>
 
     <form:form method="POST" modelAttribute="invoice">
         <form:input type="hidden" path="id" id="id"/>
@@ -53,7 +53,11 @@
                 <td><form:input path="description" id="description"/></td>
                 <td><form:errors path="description" cssClass="error"/></td>
             </tr>
-
+            <tr>
+                <td><label for="fkFirm">FirmId: </label> </td>
+                <td><form:input path="fkFirm" id="fkFirm"/></td>
+                <td><form:errors path="fkFirm" cssClass="error"/></td>
+            </tr>
 
 
             <tr>
@@ -72,6 +76,6 @@
     </form:form>
     <br/>
     <br/>
-    Go back to <a href="<c:url value='/list' />">List of All Invoices</a>
+    Go back to <a href="<c:url value='/invoice/list' />">List of All Invoices</a>
 </body>
 </html>

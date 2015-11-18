@@ -22,8 +22,8 @@ import pl.kropladev.wallet.model.Invoice;
 import pl.kropladev.wallet.service.InvoiceService;
 
 @Controller
-@RequestMapping("/")
-public class AppController {
+@RequestMapping("/invoice")
+public class InvoiceController {
 
     @Autowired
     InvoiceService service;
@@ -34,7 +34,7 @@ public class AppController {
     /*
      * This method will list all existing employees.
      */
-    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/","/list" }, method = RequestMethod.GET)
     public String listInvoices(ModelMap model) {
 
         List<Invoice> invoices = service.findAllInvoices();
@@ -68,6 +68,8 @@ public class AppController {
         service.saveInvoice(invoice);
 
         model.addAttribute("success", "Invoice " + invoice.getInvoiceNumber() + " registered successfully");
+        model.addAttribute("pageType", "invoice");
+
         return "success";
     }
 
@@ -98,6 +100,7 @@ public class AppController {
         service.updateInvoice(invoice);
 
         model.addAttribute("success", "Invoice " + invoice.getInvoiceNumber()  + " updated successfully");
+        model.addAttribute("pageType", "invoice");
         return "success";
     }
 
@@ -108,7 +111,7 @@ public class AppController {
     @RequestMapping(value = { "/delete-{invoiceId}-invoice" }, method = RequestMethod.GET)
     public String deleteInvoice(@PathVariable  Long invoiceId) {
         service.deleteInvoiceById(invoiceId);
-        return "redirect:/list";
+        return "redirect:/invoice/list";
     }
 
 }

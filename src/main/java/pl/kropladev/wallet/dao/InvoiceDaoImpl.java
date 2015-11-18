@@ -8,7 +8,6 @@ package pl.kropladev.wallet.dao;
 
     import org.hibernate.Criteria;
     import org.hibernate.Query;
-    import org.hibernate.criterion.Restrictions;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
     import org.springframework.stereotype.Repository;
@@ -16,26 +15,28 @@ package pl.kropladev.wallet.dao;
     import pl.kropladev.wallet.model.Invoice;
 
     @Repository("invoiceDao")
-    public class InvoiceDaoImpl extends AbstractDao<Long, Invoice> implements InvoiceDao {
+    public class InvoiceDaoImpl extends AbstractDao<Long, Invoice> implements SimpleDao<Invoice> {
         private static final Logger logger = LoggerFactory.getLogger(InvoiceDaoImpl.class);
-
+        public static final String TABLE_NAME = "invoice";
         public Invoice findById(Long id) {
             return getByKey(id);
         }
 
-        public void saveInvoice(Invoice invoice) {
+        public void saveEntity(Invoice invoice) {
             logger.debug(invoice.toString());
             persist(invoice);
         }
 
-        public void deleteInvoiceById(Long invoiceId) {
-            Query query = getSession().createSQLQuery("delete from invoices where id = :ssn");
-            query.setLong("id", invoiceId);
+        public void deleteEntityById(Long entityId) {
+            Query query = getSession().createSQLQuery("delete from " +
+                    TABLE_NAME +
+                    "where id = :id");
+            query.setLong("id", entityId);
             query.executeUpdate();
         }
 
         @SuppressWarnings("unchecked")
-        public List<Invoice> findAllInvoices() {
+        public List<Invoice> findAllEntities() {
             Criteria criteria = createEntityCriteria();
             return (List<Invoice>) criteria.list();
         }

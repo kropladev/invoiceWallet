@@ -198,7 +198,7 @@ CREATE TABLE `firms` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ADDRESS` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `DESC` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DESCRIPTION` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PHONE` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NIP` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `IBAN` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,

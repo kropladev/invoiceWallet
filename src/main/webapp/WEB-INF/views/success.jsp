@@ -11,7 +11,7 @@
     message : ${success}
     <br/>
     <br/>
-    Go back to <a href="<c:url value='/list' />">List of All Invoices</a>
+    Go back to <a href="<c:url value='/"+${pageType}+"/list' />">Go back to main list</a>
 
 </body>
 

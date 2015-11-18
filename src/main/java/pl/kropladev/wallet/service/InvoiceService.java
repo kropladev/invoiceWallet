@@ -20,6 +20,4 @@ public interface InvoiceService {
 
         Invoice findInvoiceById(Long invoiceId);
 
-        /*boolean isInvoiceSsnUnique(Integer id, String ssn);*/
-
     }
