@@ -3,6 +3,10 @@ package pl.kropladev.wallet.model;
 import javax.persistence.*;
 import java.util.Date;
 
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * Created by kropla on 16.11.15.
  */
@@ -14,22 +18,26 @@ public class Invoice {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "NO")
+    @Column(name = "INVOICE_NUMBER")
     private String invoiceNumber;
 
     @Column(name = "AMOUNT")
     private double amount;
 
     @Column(name = "PAY_DATE")
-    private Date payDate;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    private LocalDate payDate;
 
-    @Column(name = "INV_DATE")
-    private Date tradeDate;
+    @Column(name = "INVOICE_DATE")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    private LocalDate tradeDate;
 
     @Column(name = "FKFIRM")
     private int fkFirm;
 
-    @Column(name = "DESC")
+    @Column(name = "DESCRIPTION")
     private String description;
 
 
@@ -57,19 +65,19 @@ public class Invoice {
         this.amount = amount;
     }
 
-    public Date getPayDate() {
+    public LocalDate getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(Date payDate) {
+    public void setPayDate(LocalDate payDate) {
         this.payDate = payDate;
     }
 
-    public Date getTradeDate() {
+    public LocalDate getTradeDate() {
         return tradeDate;
     }
 
-    public void setTradeDate(Date tradeDate) {
+    public void setTradeDate(LocalDate tradeDate) {
         this.tradeDate = tradeDate;
     }
 
@@ -87,6 +95,19 @@ public class Invoice {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "id=" + id +
+                ", invoiceNumber='" + invoiceNumber + '\'' +
+                ", amount=" + amount +
+                ", payDate=" + payDate +
+                ", tradeDate=" + tradeDate +
+                ", fkFirm=" + fkFirm +
+                ", description='" + description + '\'' +
+                '}';
     }
 
 // getters and setters are removed for brevity

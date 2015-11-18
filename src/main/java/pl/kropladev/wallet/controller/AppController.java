@@ -43,7 +43,7 @@ public class AppController {
     }
 
     /*
-     * This method will provide the medium to add a new employee.
+     * This method will provide the medium to add a new invoice.
      */
     @RequestMapping(value = { "/new" }, method = RequestMethod.GET)
     public String newInvoice(ModelMap model) {
@@ -75,7 +75,7 @@ public class AppController {
     /*
      * This method will provide the medium to update an existing employee.
      */
-    @RequestMapping(value = { "/edit-{ssn}-employee" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/edit-{invoiceId}-invoice" }, method = RequestMethod.GET)
     public String editInvoice(@PathVariable Long invoiceId, ModelMap model) {
         Invoice invoice = service.findInvoiceById(invoiceId);
         model.addAttribute("invoice", invoice);
@@ -87,7 +87,7 @@ public class AppController {
      * This method will be called on form submission, handling POST request for
      * updating employee in database. It also validates the user input
      */
-    @RequestMapping(value = { "/edit-{ssn}-employee" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/edit-{invoiceId}-invoice" }, method = RequestMethod.POST)
     public String updateInvoice( Invoice invoice, BindingResult result,
                                  ModelMap model, @PathVariable  Long invoiceId) {
 
@@ -105,7 +105,7 @@ public class AppController {
     /*
      * This method will delete an employee by it's SSN value.
      */
-    @RequestMapping(value = { "/delete-{ssn}-invoice" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/delete-{invoiceId}-invoice" }, method = RequestMethod.GET)
     public String deleteInvoice(@PathVariable  Long invoiceId) {
         service.deleteInvoiceById(invoiceId);
         return "redirect:/list";
