@@ -17,7 +17,7 @@ package pl.kropladev.wallet.dao;
     @Repository("invoiceDao")
     public class InvoiceDaoImpl extends AbstractDao<Long, Invoice> implements SimpleDao<Invoice> {
         private static final Logger logger = LoggerFactory.getLogger(InvoiceDaoImpl.class);
-        public static final String TABLE_NAME = "invoice";
+        public static final String TABLE_NAME = "invoices";
         public Invoice findById(Long id) {
             return getByKey(id);
         }
@@ -30,7 +30,7 @@ package pl.kropladev.wallet.dao;
         public void deleteEntityById(Long entityId) {
             Query query = getSession().createSQLQuery("delete from " +
                     TABLE_NAME +
-                    "where id = :id");
+                    " where id = :id");
             query.setLong("id", entityId);
             query.executeUpdate();
         }

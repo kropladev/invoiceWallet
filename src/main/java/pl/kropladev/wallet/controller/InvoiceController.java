@@ -77,7 +77,7 @@ public class InvoiceController {
     /*
      * This method will provide the medium to update an existing employee.
      */
-    @RequestMapping(value = { "/edit-{invoiceId}-invoice" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/edit/{invoiceId}" }, method = RequestMethod.GET)
     public String editInvoice(@PathVariable Long invoiceId, ModelMap model) {
         Invoice invoice = service.findInvoiceById(invoiceId);
         model.addAttribute("invoice", invoice);
@@ -89,7 +89,7 @@ public class InvoiceController {
      * This method will be called on form submission, handling POST request for
      * updating employee in database. It also validates the user input
      */
-    @RequestMapping(value = { "/edit-{invoiceId}-invoice" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/edit/{invoiceId}" }, method = RequestMethod.POST)
     public String updateInvoice( Invoice invoice, BindingResult result,
                                  ModelMap model, @PathVariable  Long invoiceId) {
 
@@ -108,7 +108,7 @@ public class InvoiceController {
     /*
      * This method will delete an employee by it's SSN value.
      */
-    @RequestMapping(value = { "/delete-{invoiceId}-invoice" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/delete/{invoiceId}" }, method = RequestMethod.GET)
     public String deleteInvoice(@PathVariable  Long invoiceId) {
         service.deleteInvoiceById(invoiceId);
         return "redirect:/invoice/list";

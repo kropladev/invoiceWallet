@@ -37,6 +37,18 @@ public class Invoice {
     @Column(name = "FKFIRM")
     private int fkFirm;
 
+    @ManyToOne
+    @JoinColumn(name ="FKFIRM",updatable = false, insertable = false)
+    private Firm firm;
+
+    public Firm getFirm() {
+        return firm;
+    }
+
+    public void setFirm(Firm firm) {
+        this.firm = firm;
+    }
+
     @Column(name = "DESCRIPTION")
     private String description;
 
@@ -97,6 +109,8 @@ public class Invoice {
         this.description = description;
     }
 
+    // getters and setters are removed for brevity
+
     @Override
     public String toString() {
         return "Invoice{" +
@@ -106,9 +120,8 @@ public class Invoice {
                 ", payDate=" + payDate +
                 ", tradeDate=" + tradeDate +
                 ", fkFirm=" + fkFirm +
+                ", firm=" + firm +
                 ", description='" + description + '\'' +
                 '}';
     }
-
-// getters and setters are removed for brevity
 }

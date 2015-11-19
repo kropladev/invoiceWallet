@@ -24,12 +24,12 @@
         </tr>
         <c:forEach items="${invoices}" var="invoice">
             <tr>
-            <td><a href="<c:url value='/edit-${invoice.id}-invoice' />">
+            <td><a href="<c:url value='/invoice/edit/${invoice.id}' />">
                 ${invoice.invoiceNumber}</a></td>
             <td>${invoice.amount}</td>
             <td>${invoice.description}</td>
-            <td>${invoice.fkFirm}</td>
-            <td><a href="<c:url value='/delete-${invoice.id}-invoice' />">delete</a></td>
+            <td>${invoice.fkFirm}[${invoice.firm.name}]</td>
+            <td><a href="<c:url value='/invoice/delete/${invoice.id}' />">delete</a></td>
             </tr>
         </c:forEach>
     </table>
