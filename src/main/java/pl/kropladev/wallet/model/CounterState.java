@@ -17,7 +17,7 @@ public class CounterState {
     private Long id;
 
     @Column(name = "STATE")
-    private double value;
+    private Double value;
 
     @Column(name = "READ_TIME")
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -53,11 +53,11 @@ public class CounterState {
         this.id = id;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

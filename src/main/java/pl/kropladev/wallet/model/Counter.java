@@ -39,14 +39,31 @@ public class Counter {
         this.name = name;
     }
 
+    public Long getCounterTypeId() {
+        return counterTypeId;
+    }
+
+    public void setCounterTypeId(Long counterTypeId) {
+        this.counterTypeId = counterTypeId;
+    }
+
+    public CounterTypes getType() {
+        return type;
+    }
+
+    public void setType(CounterTypes type) {
+        this.type = type;
+    }
+    // getters and setters are removed for brevity
+
     @Override
     public String toString() {
         return "Counter{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", counterTypeId=" + counterTypeId +
                 ", type=" + type +
                 '}';
     }
 
-    // getters and setters are removed for brevity
 }

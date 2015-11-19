@@ -6,14 +6,18 @@ package pl.kropladev.wallet.dao;
 import java.io.Serializable;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import pl.kropladev.wallet.model.Counter;
 
-public abstract class AbstractDao<PK extends Serializable, T>  {
+public abstract class AbstractDao<PK extends Serializable, T> implements SimpleDao<T> {
 
+    protected String tableName;
     private final Class<T> persistentClass;
 
     @SuppressWarnings("unchecked")
@@ -43,6 +47,31 @@ public abstract class AbstractDao<PK extends Serializable, T>  {
 
     protected Criteria createEntityCriteria(){
         return getSession().createCriteria(persistentClass);
+    }
+
+
+    public T findById(PK id) {
+        return getByKey(id);
+    }
+
+    public void saveEntity(T entity) {
+        persist(entity);
+    }
+
+   // public abstract void deleteEntityById(PK entityId);
+
+    public void deleteEntityById(Long entityId) {
+        Query query = getSession().createSQLQuery("delete from "
+                + tableName
+                + " where id = :id");
+        query.setLong("id", entityId);
+        query.executeUpdate();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<T> findAllEntities() {
+        Criteria criteria = createEntityCriteria();
+        return (List<T>) criteria.list();
     }
 
 }

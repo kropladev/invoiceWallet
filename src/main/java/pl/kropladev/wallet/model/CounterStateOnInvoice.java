@@ -15,7 +15,7 @@ public class CounterStateOnInvoice {
     private Long id;
 
     @Column(name = "STATE")
-    private String value;
+    private Double value;
 
     @Column (name = "FKINVOICE")
     private Long invoiceId;
@@ -39,11 +39,11 @@ public class CounterStateOnInvoice {
         this.id = id;
     }
 
-    public String getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
