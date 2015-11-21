@@ -12,6 +12,10 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
@@ -20,11 +24,22 @@ public class AppConfig {
 
     @Bean
     public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/views/");
-        viewResolver.setSuffix(".jsp");
+        //InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        //FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
+        TilesViewResolver viewResolver = new TilesViewResolver();
+        //viewResolver.setViewClass(JstlView.class);
+        viewResolver.setViewClass(TilesView.class);
+        //viewResolver.setPrefix("/WEB-INF/views/");
+        //viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    @Bean
+    public TilesConfigurer tilesConfigurer(){
+        TilesConfigurer tilesConfig = new TilesConfigurer();
+        tilesConfig.setDefinitions(new String[]{ "/WEB-INF/tilesDefinitions.xml" });
+        tilesConfig.setCheckRefresh(true);
+        return tilesConfig;
     }
 
     @Bean
