@@ -1,58 +1,20 @@
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<html>
+
+<%@ include file="/WEB-INF/pages/includes.jsp"%>
+<!DOCTYPE html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Default tiles template</title>
-    <style type="text/css">
-    body {
-        margin:0px;
-        padding:0px;
-        height:100%;
-        overflow:hidden;
-    }
-
-    .page {
-        min-height:100%;
-        position:relative;
-    }
-
-    .header {
-        padding:10px;
-        width:100%;
-        text-align:center;
-    }
-
-    .content {
-            padding:10px;
-            padding-bottom:20px; /* Height of the footer element */
-            overflow:hidden;
-    }
-
-    .menu {
-        padding:50px 10px 0px 10px;
-        width:200px;
-        float:left;
-    }
-
-    .body {
-        margin:50px 10px 0px 250px;
-    }
-
-    .footer {
-        clear:both;
-        position:absolute;
-        bottom:0;
-        left:0;
-        text-align:center;
-        width:100%;
-        height:20px;
-    }
-
-    </style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <title>invoice wallet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <!-- IE 6,7,8 is not supported on 2.1.x version of jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
 </head>
 <body>
     <div class="page">
-        <tiles:insertAttribute name="header" />
         <div class="content">
             <tiles:insertAttribute name="menu" />
             <tiles:insertAttribute name="body" />

@@ -3,6 +3,8 @@ package pl.kropladev.wallet.controller;
 /**
  * Created by kropla on 17.11.15.
  */
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -35,10 +37,16 @@ public class InvoiceController {
      * This method will list all existing employees.
      */
     @RequestMapping(value = { "/","/list" }, method = RequestMethod.GET)
-    public String listInvoices(ModelMap model) {
+    public String listInvoices(Locale locale,ModelMap model) {
 
         List<Invoice> invoices = service.findAllInvoices();
         model.addAttribute("invoices", invoices);
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String formattedDate = dateFormat.format(date);
+        model.addAttribute("serverTime", formattedDate);
         return "allinvoices";
     }
 
