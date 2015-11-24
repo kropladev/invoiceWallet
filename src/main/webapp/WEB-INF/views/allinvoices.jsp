@@ -6,6 +6,11 @@
         <h2>List of Invoices</h2>
         <p>The time on the server is ${serverTime}.</p>
         <div class="container">
+
+            <div class="input-group"> <span class="input-group-addon">Filter</span>
+                <input id="filter" type="text" class="form-control" placeholder="Type here..."/>
+            </div>
+
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>

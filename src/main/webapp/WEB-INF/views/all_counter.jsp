@@ -4,6 +4,9 @@
     <tiles:putAttribute name="body">
         <h2>List of Counters</h2>
         <div class="container">
+            <div class="input-group"> <span class="input-group-addon">Filter</span>
+                <input id="filter" type="text" class="form-control" placeholder="Type here..."/>
+            </div>
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
