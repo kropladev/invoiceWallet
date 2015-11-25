@@ -21,7 +21,7 @@
                     </a>
                 </li>
 				<li class="dropdown">
-					<a href="/invoiceWallet/counter/" class="dropdown-toggle">
+					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-bar-chart-o"></i>
 						<span class="hidden-xs">Counters</span>
 					</a>
