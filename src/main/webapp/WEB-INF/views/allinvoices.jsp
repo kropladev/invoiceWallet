@@ -10,7 +10,7 @@
             <div class="input-group"> <span class="input-group-addon">Filter</span>
                 <input id="filter" type="text" class="form-control" placeholder="Type here..."/>
             </div>
-
+            <fmt:setLocale value="pl_PL" scope="session"/>
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
@@ -24,8 +24,9 @@
                 <tbody>
                     <c:forEach items="${invoices}" var="invoice">
                         <tr id="row-${invoice.id}">
-                            <td><a href="<c:url value='/invoice/edit/${invoice.id}' />">${invoice.invoiceNumber}</a></td>
-                            <td>${invoice.amount}</td>
+                            <td class="alignRight"><a href="<c:url value='/invoice/edit/${invoice.id}' />">${invoice.invoiceNumber}</a></td>
+
+                            <td class="alignRight"><fmt:formatNumber value="${invoice.amount}" type="currency"/></td>
                             <td>${invoice.description}</td>
                             <td>${invoice.fkFirm}[${invoice.firm.name}]</td>
                             <td>

@@ -1,30 +1,39 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/invoiceWallet/home">Home</a></li>
-        <li><a href="/invoiceWallet/invoice/">Invoices</a></li>
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Counters
-                <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="/invoiceWallet/counter/">Counters</a></li>
-                <li><a href="/invoiceWallet/counterState/">States</a></li>
-                <li><a href="/invoiceWallet/counterStateInv/">Invoice states</a></li>
-                <li><a href="/invoiceWallet/counterType/">Types</a></li>
-            </ul>
-        </li>
 
-        <li><a href="/invoiceWallet/firm/">Firms</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div id="sidebar-left" class="col-xs-2 col-sm-2">
+			<ul class="nav main-menu">
+				<li>
+					<a href="/invoiceWallet/home" class="ajax-link">
+						<i class="fa fa-dashboard"></i>
+						<span class="hidden-xs">Home</span>
+					</a>
+				</li>
+                <li>
+                    <a href="/invoiceWallet/invoice" class="ajax-link">
+                        <i class="fa fa-dashboard"></i>
+                        <span class="hidden-xs">Invoices</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/invoiceWallet/firm" class="ajax-link">
+                        <i class="fa fa-dashboard"></i>
+                        <span class="hidden-xs">Firms</span>
+                    </a>
+                </li>
+				<li class="dropdown">
+					<a href="/invoiceWallet/counter/" class="dropdown-toggle">
+						<i class="fa fa-bar-chart-o"></i>
+						<span class="hidden-xs">Counters</span>
+					</a>
+					<ul class="dropdown-menu">
+					    <li><a class="ajax-link" href="/invoiceWallet/counter/">Counters</a></li>
+                        <li><a class="ajax-link" href="/invoiceWallet/counterState/">States</a></li>
+                        <li><a class="ajax-link" href="/invoiceWallet/counterStateInv/">Invoice states</a></li>
+                        <li><a class="ajax-link" href="/invoiceWallet/counterType/">Types</a></li>
+					</ul>
+				</li>
+
+
+			</ul>
+		</div>
+

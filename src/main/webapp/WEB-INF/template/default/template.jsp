@@ -18,6 +18,8 @@
     <spring:url value="/resources/js/jquery.tablesorter.min.js" var="tableSorter" />
     <spring:url value="/resources/js/jquery.tablesorter.widgets.min.js" var="tableSorterWidgets" />
     <spring:url value="/resources/css/theme.bootstrap.css" var="bootstrapTheme" />
+    		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    		<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 
     <script src="${tableSorter}"></script>
     <script src="${tableSorterWidgets}"></script>
@@ -25,11 +27,13 @@
 </head>
 </head>
 <body>
-    <div class="page">
-        <div class="content">
+    <tiles:insertAttribute name="header" />
+    <div id="page" class="page">
+        <div class="row">
             <tiles:insertAttribute name="menu" />
-            <tiles:insertAttribute name="body" />
-
+               <div id="content" class="col-xs-12 col-sm-10">
+                    <tiles:insertAttribute name="body" />
+                </div>
 
                     <script >
                     $(document).ready(function () {

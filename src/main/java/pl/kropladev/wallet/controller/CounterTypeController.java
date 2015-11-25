@@ -30,7 +30,7 @@ public class CounterTypeController {
     @Autowired
     MessageSource messageSource;
 
-    @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"","/", "/list"}, method = RequestMethod.GET)
     public String listAll(ModelMap model) {
         List<CounterTypes> dbEntities = service.findAllEntities();
         model.addAttribute("list", dbEntities);

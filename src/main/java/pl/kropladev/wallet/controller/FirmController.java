@@ -28,7 +28,7 @@ public class FirmController {
     @Autowired
     MessageSource messageSource;
 
-    @RequestMapping(value = { "/","/list"},method = RequestMethod.GET)
+    @RequestMapping(value = { "","/","/list"},method = RequestMethod.GET)
     public String listFirms(ModelMap model){
         List<Firm> firms = service.findAllEntities();
         model.addAttribute("list", firms);

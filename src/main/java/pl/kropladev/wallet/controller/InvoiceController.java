@@ -36,7 +36,7 @@ public class InvoiceController {
     /*
      * This method will list all existing employees.
      */
-    @RequestMapping(value = { "/","/list" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"", "/","/list" }, method = RequestMethod.GET)
     public String listInvoices(Locale locale,ModelMap model) {
 
         List<Invoice> invoices = service.findAllInvoices();

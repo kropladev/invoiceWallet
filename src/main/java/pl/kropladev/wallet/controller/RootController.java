@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/")
 public class RootController {
 
-    @RequestMapping(value = { "/"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "","/"}, method = RequestMethod.GET)
     public String redirect() {
         return "redirect:/invoice/";
     }
