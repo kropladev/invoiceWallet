@@ -6,14 +6,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <title>invoice wallet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-     <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-    <!-- IE 6,7,8 is not supported on 2.1.x version of jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 
     <spring:url value="/resources/js/jquery.tablesorter.min.js" var="tableSorter" />
     <spring:url value="/resources/js/jquery.tablesorter.widgets.min.js" var="tableSorterWidgets" />
@@ -34,6 +34,8 @@
         <div class="row">
             <tiles:insertAttribute name="menu" />
                <div id="content" class="col-xs-12 col-sm-10">
+
+                    <tiles:insertAttribute name="breadcrumb" />
                     <tiles:insertAttribute name="body" />
                 </div>
 

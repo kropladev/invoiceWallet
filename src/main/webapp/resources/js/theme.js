@@ -8,18 +8,21 @@
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 $(document).ready(function () {
-	$('.show-sidebar').on('click', function (e) {
+	/*$('.show-sidebar').on('click', function (e) {
 		e.preventDefault();
-		$('div#main').toggleClass('sidebar-show');
+		$('div#page').toggleClass('sidebar-show');
 		setTimeout(MessagesMenuWidth, 250);
-	});
+	});*/
 	/*var ajax_url = location.hash.replace(/^#/, '');
 	if (ajax_url.length < 1) {
 		ajax_url = 'ajax/dashboard.html';
 	}
 	LoadAjaxContent(ajax_url);*/
-	$('.main-menu').on('click', 'a', function (e) {
+	/*$('.main-menu').on('click', 'a', function (e) {
+	    console.log("this":$(this));
+
 		var parents = $(this).parents('li');
+		console.log("this.parents":$(this));
 		var li = $(this).closest('li.dropdown');
 		var another_items = $('.main-menu li').not(parents);
 		another_items.find('a').removeClass('active');
@@ -46,24 +49,13 @@ $(document).ready(function () {
 			$(this).parents("ul.dropdown-menu").find('a').removeClass('active');
 			$(this).addClass('active')
 		}
-		if ($(this).hasClass('ajax-link')) {
+
+*//*		if ($(this).attr('href') == '#') {
 			e.preventDefault();
-			if ($(this).hasClass('add-full')) {
-				$('#content').addClass('full-content');
-			}
-			else {
-				$('#content').removeClass('full-content');
-			}
-			var url = $(this).attr('href');
-			window.location.hash = url;
-			LoadAjaxContent(url);
-		}
-		if ($(this).attr('href') == '#') {
-			e.preventDefault();
-		}
-	});
-	var height = window.innerHeight - 49;
-	$('#main').css('min-height', height)
+		}*//*
+	});*/
+	/*var height = window.innerHeight - 49;
+	$('#page').css('min-height', height)
 		.on('click', '.expand-link', function (e) {
 			var body = $('body');
 			e.preventDefault();
@@ -102,12 +94,12 @@ $(document).ready(function () {
 			content.remove();
 		});
 	$('#search').on('keydown', function(e){
-		/*if (e.keyCode == 13){
+		*//*if (e.keyCode == 13){
 			e.preventDefault();
 			$('#content').removeClass('full-content');
 			ajax_url = 'ajax/page_search.html';
 			window.location.hash = ajax_url;
 			LoadAjaxContent(ajax_url);
-		}*/
-	});
+		}*//*
+	});*/
 });
