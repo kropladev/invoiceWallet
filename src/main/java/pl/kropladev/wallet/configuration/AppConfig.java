@@ -16,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
@@ -32,30 +33,41 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     // equivalent for <mvc:default-servlet-handler/> tag
-    @Override
+   /* @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+*/
+  /*  @Bean
+    public UrlBasedViewResolver tilesViewResolver() {
+
+        UrlBasedViewResolver tilesViewResolver = new UrlBasedViewResolver();
+        tilesViewResolver.setViewClass(TilesView.class);
+        return tilesViewResolver;
+    }*/
+
+/*    @Bean
+    public InternalResourceViewResolver tilesViewResolver() {
+
+        InternalResourceViewResolver tilesViewResolver = new InternalResourceViewResolver();
+       // tilesViewResolver.setViewClass(TilesView.class);
+        return tilesViewResolver;
+    }*/
+
 
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        //FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
-        //TilesViewResolver viewResolver = new TilesViewResolver();
         viewResolver.setViewClass(JstlView.class);
-        //viewResolver.setViewClass(TilesView.class);
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
-
-
-
     @Bean
     public TilesConfigurer tilesConfigurer(){
         TilesConfigurer tilesConfig = new TilesConfigurer();
         tilesConfig.setDefinitions(new String[]{ "/WEB-INF/tiles-definitions.xml" });
-        tilesConfig.setCheckRefresh(true);
+        //tilesConfig.setCheckRefresh(true);
         return tilesConfig;
     }
 

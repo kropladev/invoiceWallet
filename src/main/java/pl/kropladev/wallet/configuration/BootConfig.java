@@ -5,18 +5,17 @@ package pl.kropladev.wallet.configuration;
  */
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //@RestController
-//@EnableAutoConfiguration
+@EnableAutoConfiguration
 @SpringBootApplication
+@EnableTransactionManagement
+//@ComponentScan(basePackages = "pl.kropladev.wallet")
 public class BootConfig {
-
- /*   @RequestMapping("/")
-    String home() {
-        return "Hello World!";
-    }*/
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(BootConfig.class, args);

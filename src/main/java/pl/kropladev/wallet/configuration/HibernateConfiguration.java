@@ -18,13 +18,24 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
+/*
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+*/
 
 @Configuration
-@EnableTransactionManagement
+//@EnableTransactionManagement
 @ComponentScan({"pl.kropladev.wallet.configuration"})
 @PropertySource(value = {"classpath:application.properties"})
 public class HibernateConfiguration {
+
+/*    @Bean
+    public HibernateJpaSessionFactoryBean sessionFactory() {
+        return new HibernateJpaSessionFactoryBean();
+    }*/
 
     @Autowired
     private Environment environment;
