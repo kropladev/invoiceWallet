@@ -32,29 +32,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
-    // equivalent for <mvc:default-servlet-handler/> tag
-   /* @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
-*/
-  /*  @Bean
-    public UrlBasedViewResolver tilesViewResolver() {
-
-        UrlBasedViewResolver tilesViewResolver = new UrlBasedViewResolver();
-        tilesViewResolver.setViewClass(TilesView.class);
-        return tilesViewResolver;
-    }*/
-
-/*    @Bean
-    public InternalResourceViewResolver tilesViewResolver() {
-
-        InternalResourceViewResolver tilesViewResolver = new InternalResourceViewResolver();
-       // tilesViewResolver.setViewClass(TilesView.class);
-        return tilesViewResolver;
-    }*/
-
-
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -67,7 +44,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public TilesConfigurer tilesConfigurer(){
         TilesConfigurer tilesConfig = new TilesConfigurer();
         tilesConfig.setDefinitions(new String[]{ "/WEB-INF/tiles-definitions.xml" });
-        //tilesConfig.setCheckRefresh(true);
         return tilesConfig;
     }
 
