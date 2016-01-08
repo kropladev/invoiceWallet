@@ -28,7 +28,10 @@
 
                             <td class="alignRight"><fmt:formatNumber value="${invoice.amount}" type="currency"/></td>
                             <td>${invoice.description}</td>
-                            <td>${invoice.fkFirm}[${invoice.firm.name}]</td>
+
+                            <!-- FIRM -->
+                            <td><a href="<c:url value='/firm/${invoice.fkFirm}'/>">${invoice.firm.name}</a></td>
+
                             <td>
                                 <a href="<c:url value='/invoice/delete/${invoice.id}' />" class="btn btn-danger" role="button">
                                     <span class="glyphicon glyphicon-remove-circle"></span>
