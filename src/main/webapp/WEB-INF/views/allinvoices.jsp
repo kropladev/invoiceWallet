@@ -1,10 +1,10 @@
 <%@ include file="/WEB-INF/pages/includes.jsp"%>
 
 <tiles:insertDefinition name="defaultTemplate">
+
     <tiles:putAttribute name="body">
 
-        <h2>List of Invoices</h2>
-        <p>The time on the server is ${serverTime}.</p>
+
         <div class="container">
 
             <div class="input-group"> <span class="input-group-addon">Filter</span>

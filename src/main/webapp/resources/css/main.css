@@ -291,3 +291,8 @@ position: relative;
     background: #5a8db6 url(../images/devoops_pattern_b10.png) 0 0 repeat;
     margin-bottom: 20px;
     }
+
+#mainSearch{float:left;}
+#headerPageTitle{float: left;width: 300px; }
+#headerPageTitle h1{font-size: 21px; margin-top:12px; margin-left:20px;}
+#userInfo{float: right;width: 200px;}
