@@ -3,7 +3,6 @@
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <h2>New counter state on invoice Registration Form</h2>
 
         <form:form method="POST" modelAttribute="entity">
             <form:input type="hidden" path="id" id="id"/>

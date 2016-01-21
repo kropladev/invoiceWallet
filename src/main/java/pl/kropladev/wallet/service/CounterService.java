@@ -13,7 +13,7 @@ import java.util.List;
  * Created by kropla on 19.11.15.
  */
 @Service("counterService")
-//@Transactional
+@Transactional
 public class CounterService implements BaseService<Counter>{
     @Autowired
     @Qualifier("counterDao")

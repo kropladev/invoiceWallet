@@ -34,6 +34,7 @@ public class CounterTypeController {
     public String listAll(ModelMap model) {
         List<CounterTypes> dbEntities = service.findAllEntities();
         model.addAttribute("list", dbEntities);
+        model.addAttribute("pageTitle", "all_"+PAGE_TYPE);
         return "all_"+PAGE_TYPE;
     }
 

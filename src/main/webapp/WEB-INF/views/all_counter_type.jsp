@@ -2,7 +2,6 @@
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
-        <h2>List of Counter types</h2>
         <div class="container">
 
             <div class="input-group"> <span class="input-group-addon">Filter</span>

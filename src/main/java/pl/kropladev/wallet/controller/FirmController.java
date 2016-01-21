@@ -32,6 +32,7 @@ public class FirmController {
     public String listFirms(ModelMap model){
         List<Firm> firms = service.findAllEntities();
         model.addAttribute("list", firms);
+        model.addAttribute("pageTitle", "allfirms");
         return "allfirms";
     }
 

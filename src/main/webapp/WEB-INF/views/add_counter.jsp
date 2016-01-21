@@ -2,7 +2,6 @@
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
-        <h2>New Counter Registration Form</h2>
 
         <form:form method="POST" modelAttribute="entity">
             <form:input type="hidden" path="id" id="id"/>

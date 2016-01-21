@@ -32,7 +32,11 @@
                     <li><a  href="/invoiceWallet/counterType/">Types</a></li>
                 </ul>
             </li>
-
+		    <li> <a href="/invoiceWallet/firm">
+		            <i class="fa fa-building-o"></i>
+		            <span class="hidden-xs">Settlements</span>
+		          </a>
+		    </li>
         </ul>
 		</div>
 

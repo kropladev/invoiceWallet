@@ -8,7 +8,7 @@
 			<div id="top-panel" class="col-xs-12 col-sm-10">
 				<div class="row">
 				    <div id="headerPageTitle">
-				        <h1>${pageTitle}</h1>
+				        <h1><spring:message code="${pageTitle}" /></h1>
 				    </div>
 					<div id="mainSearch" class="col-xs-8 col-sm-4">
 					    <a href="#" class="show-sidebar">
